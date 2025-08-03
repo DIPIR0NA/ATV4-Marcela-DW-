@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Usuários</title>
+    <script>
+        function toggleCamposTipo() {
+            const tipo = document.querySelector('input[name="tipo"]:checked')?.value;
+            document.getElementById('divSalario').style.display = tipo == 'professor' ? 'block' : 'none';
+            document.getElementById('divResponsavel').style.display = tipo == 'aluno' ? 'block' : 'none';
+        }
+    </script>
+</head>
+<body onload="toggleCamposTipo()">
+    <h1>Cadastro de Usuários</h1>
+    <form action="index.php" method="post">
+        <fieldset>
+            <legend>Dados Pessoais</legend>
+            <label for="id">ID:</label>
+            <input type="text" name="id" readonly value="{id}">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" value="{nome}">
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" value="{email}">
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" value="{senha}">
+            <label for="matricula">Matrícula:</label>
+            <input type="text" name="matricula" value="{matricula}">
+            <label for="contato">Contato:</label>
+            <input type="text" name="contato" value="{contato}">
+
+            <p>Tipo:</p>
+            <label><input type="radio" name="tipo" value="aluno" onclick="toggleCamposTipo()" {alunoSelecionado}> Aluno</label>
+            <label><input type="radio" name="tipo" value="professor" onclick="toggleCamposTipo()" {professorSelecionado}> Professor</label>
+
+            <div id="divResponsavel">
+                <label for="nomeResponsavel">Nome do Responsável:</label>
+                <input type="text" name="nomeResponsavel" value="{nomeResponsavel}">
+            </div>
+
+            <div id="divSalario">
+                <label for="salario">Salário:</label>
+                <input type="number" step="0.01" name="salario" value="{salario}">
+            </div>
+
+            <br>
+            <button type="submit" name="acao" value="salvar">Salvar</button>
+            <button type="submit" name="acao" value="excluir">Excluir</button>
+            <input type="reset" value="Cancelar">
+        </fieldset>
+    </form>
+</body>
+</html>

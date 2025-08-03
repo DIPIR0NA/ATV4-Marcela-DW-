@@ -1,0 +1,37 @@
+
+<form action="lista_usuario.php" method="GET">
+    <fieldset>
+        <legend>Busca</legend>
+        <label for="busca">Busca</label>
+        <input type="text" name="busca">
+        <label for="tipo">Tipo</label>
+        <select name="tipo">
+            <option value="0">Selecione</option>
+            <option value="1">ID</option>
+            <option value="2">Nome</option>
+            <option value="3">Matricula</option>
+            <option value="4">Contato</option>
+        </select>
+        <button type="submit">Buscar</button>
+    </fieldset>
+</form>
+
+
+<h1>Listagem de Usuários</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Matrícula</th>
+            <th>Contato</th>
+            <th>Tipo</th>
+            <th>Salário</th>
+            <th>Nome do Responsável</th>
+        </tr>
+    </thead>
+    <tbody>
+        {itens}
+    </tbody>
+</table>
